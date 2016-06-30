@@ -25,10 +25,10 @@ while(True):
     tree = html.fromstring(result)
     table = tree.xpath('//*[@id="cardsets"]/div[53]/div/div[4]/div[2]/div/table/tbody/tr[7]')
     data = [ele.text for ele in table[0]]
-    imestamp = time.time()
+    timestamp = time.time()
     with open('polling_average.csv', 'a') as out:
         writer = csv.writer(out)
         writer.writerow([timestamp, float(data[2].strip('%'))/100.0,
             float(data[3].strip('%'))/100.0,
             float(data[4].strip('%'))/100.0])
-    sleep(7200)
+    time.sleep(7200)
